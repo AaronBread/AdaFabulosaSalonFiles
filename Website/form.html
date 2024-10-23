@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="landingPage.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">Ada Fabulosa Salon</div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="landingPage.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="form.html" target="_self">Reserve</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="form-section">
+        <div class="container">
+            <h1>Reserve Your Appointment</h1>
+            <form id="reservationForm">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reservationDate">Reservation Date:</label>
+                    <input type="date" id="reservationDate" name="reservationDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactNumber">Contact Number:</label>
+                    <input type="tel" id="contactNumber" name="contactNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="example@email.com">
+                </div>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Ada Fabulosa Salon. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Set minimum date for reservation to tomorrow
+    document.addEventListener("DOMContentLoaded", function () {
+        let now = new Date();
+        now.setDate(now.getDate() + 1); // Set to tomorrow
+        let year = now.getFullYear();
+        let month = String(now.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+        let day = String(now.getDate()).padStart(2, '0');
+        let minDate = `${year}-${month}-${day}`;
+        document.getElementById("reservationDate").setAttribute("min", minDate);
+    });
+</script>
+
+</body>
+</html>

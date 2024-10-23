@@ -112,7 +112,7 @@ body {
         background-image: url('img3.jpg');
     }
     100% {
-        background-image: url('img4.png');
+        background-image: url('img4.jpg');
     }
 }
 
@@ -237,38 +237,48 @@ body {
 
 
 .services {
-    padding: 50px 20px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #f8f9fa;
+    text-align: center;
 }
 
-.services h2 {
+h2 {
     font-size: 2.5em;
-    color: #cc80cb;
     margin-bottom: 20px;
+    text-align: center; /* Center the text */
     font-family: 'Lucida Handwriting', cursive;
 }
 
 .services-container {
-    background-color: #cc80cb;
-    padding: 300px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Space between service items */
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    gap: 20px; /* Space between images */
+    flex-wrap: wrap; /* Allows the images to wrap on smaller screens */
+    max-width: 1300px; /* Set a max width for the container */
+    margin: 0 auto;
+}
+.service-item img {
+    width: 400px;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .service-item {
-    flex: 1; /* Adjusts item size */
-    max-width: 250px; /* Sets a max width for each image */
-}
+    display: inline-block;
+    max-width: 400px; /* Sets a max width for each image */
+}   
 
-.service-item img {
-    width: 100%; /* Makes image responsive */
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .service-item img {
+        width: 150px;
+        height: 150px;
+    }
 }
 
 .cta {
@@ -288,9 +298,69 @@ body {
     cursor: pointer;
 }
 
+/* Footer stays at the bottom */
 footer {
     background-color: #990196;
     color: white;
     text-align: center;
     padding: 10px 0;
+    width: 100%;
+}
+main {
+    padding-top: 100px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-section {
+    padding: 40px 20px;
+}
+
+.form-section h1 {
+    font-family: 'Lucida Handwriting', cursive;
+    color: #cc80cb;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #aa8ef4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.submit-btn:hover {
+    background-color: #65558f;
+}
+
+footer {
+    background-color: #990196;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
